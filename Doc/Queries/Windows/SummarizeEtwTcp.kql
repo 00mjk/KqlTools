@@ -5,7 +5,7 @@ EtwTcp
 | extend DestinationIpAddress = EventData.daddr, DestinationPort = ntohs(EventData.dport) 
 | extend Size = EventData.size 
 | extend ProcessId = EventData.PID 
-| summarize Count = count(), Bytes = sum(Size) by bin(TimeCreated, 10s), SourceIpAddress, SourcePort, DestinationIpAddress, DestinationPort, EventId, ProcessId, ProcessName
+| summarize Count = count(), Bytes = sum(Size) by bin(TimeCreated, 30s), SourceIpAddress, SourcePort, DestinationIpAddress, DestinationPort, EventId, ProcessId, ProcessName
 
 
 
